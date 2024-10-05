@@ -18,16 +18,35 @@ def criba(n):
 
     return primes
 
+# Función para verificar si un número es primo y encontrar sus divisores primos
+def is_prime(n):
+    if n < 2:
+        return False, []
+
+    # Generar lista de primos hasta raíz de n
+    primes = criba(int(n**0.5) + 1)
+
+    # Verificar si n es divisible por algún primo y recolectar todos los divisores
+    divisors = [primeNumber for primeNumber in primes if n % primeNumber == 0]
+
+    if len(divisors) > 0:
+        return False, divisors  # n no es primo, devolver todos los divisores primos
+
+    return True, []  # n es primo
+
 # Ingreso del número
-a = int(input("Ingrese un número: "))
+a = int(input("Ingrese un número entero positivo: "))
 
 # Medición de tiempo
 start_time = time.time()
-prime = criba(a)
-is_prime = a in prime
+prime, divisors = is_prime(a)  # Verificar si es primo y obtener divisores
 end_time = time.time()
 
-# Imprimir la lista de números primos y el tiempo de ejecución
-print(f"Los números primos menores o iguales a {a} son: {prime}")
-print(f"¿Es primo? {'Sí' if is_prime else 'No'}")
-print("Tiempo de ejecución:", end_time - start_time, "segundos")
+# Imprimir si el número es primo o no, y sus divisores si no lo es
+print(f"¿Es primo? {'Sí' if prime else 'No'}")
+if prime:
+    print(f"El número {a} es primo.")
+else:
+    print(f"El número {a} no es primo, pues lo dividen los números primos {divisors}.")
+
+print(f"Tiempo de ejecución: {end_time - start_time} segundos")

@@ -13,7 +13,7 @@ def criba(n):
         for j in range(i * i, n + 1, i):
             not_primes.add(j)
 
-    # Generar la lista de primos como los números que no están en not_primes
+    # Si el número ⁠ n ⁠ no está en ⁠ not_primes ⁠, es primo
     primes = [i for i in range(2, n + 1) if i not in not_primes]
 
     return primes
