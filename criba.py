@@ -1,7 +1,13 @@
+'''
+Actividad Formativa #5
+    Criba
+'''
+
 import time
 
 # Función para generar primos usando la criba de Eratóstenes
 def criba(n):
+    prime: list = []
     not_primes = set()
 
     # Bucle principal para encontrar números primos
@@ -18,12 +24,16 @@ def criba(n):
 
     return primes
 
+print("\n=== CRIBA ===")
+
 # Ingreso del número
 a = int(input("Ingrese un número: "))
 
 # Medición de tiempo
 start_time = time.time()
+
 prime = criba(a)
+
 end_time = time.time()
 
 # Imprimir la lista de números primos y el tiempo de ejecución

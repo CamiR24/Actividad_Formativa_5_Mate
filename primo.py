@@ -1,3 +1,8 @@
+'''
+Actividad Formativa #5
+    ifPrime
+'''
+
 import time
 
 # Función para generar primos usando la criba de Eratóstenes
@@ -34,8 +39,9 @@ def is_prime(n):
 
     return True, []  # n es primo
 
+print("\n=== NÚMEROS PRIMOS ===")
 # Ingreso del número
-a = int(input("Ingrese un número entero positivo: "))
+a = int(input("Ingrese un número entero positivo n: "))
 
 # Medición de tiempo
 start_time = time.time()
@@ -43,7 +49,7 @@ prime, divisors = is_prime(a)  # Verificar si es primo y obtener divisores
 end_time = time.time()
 
 # Imprimir si el número es primo o no, y sus divisores si no lo es
-print(f"¿Es primo? {'Sí' if prime else 'No'}")
+
 if prime:
     print(f"El número {a} es primo.")
 else:
